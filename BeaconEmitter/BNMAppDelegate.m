@@ -25,6 +25,7 @@
 #import <IOBluetooth/IOBluetooth.h>
 
 #import "BNMBeaconRegion.h"
+#import "BeaconResponseReceiver.h"
 
 @interface BNMAppDelegate () <CBPeripheralManagerDelegate>
 
@@ -35,6 +36,8 @@
 @property (weak) IBOutlet NSTextField *power;
 @property (weak) IBOutlet NSButton *startBeaconButton;
 @property (weak) IBOutlet NSTextField *bluetoothStatusLbl;
+@property (weak) IBOutlet NSScrollView *namesScrollView;
+@property (strong) IBOutlet NSTextView* namesFromServer;
 
 @property (strong, nonatomic) CBPeripheralManager *manager;
 @end
@@ -43,8 +46,27 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     _manager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(helloReceived:) name:kHelloReceived object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(helloWithNameReceived:) name:kHelloWithName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(byeWithNameReceived:) name:kByeWithName object:nil];
+    
+    [[BeaconResponseReceiver instance] createServer];
 }
 
+-(void)helloReceived:(NSNotification*)notif{
+    [self.namesFromServer.textStorage appendAttributedString:[[NSAttributedString alloc] initWithString:@"Hello received"]];
+     
+}
+
+-(void)helloWithNameReceived:(NSNotification*) notif{
+    [self.namesFromServer.textStorage appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ came to range\n",notif.object]]];
+    //[self.namesScrollView scrollToEndOfDocument:self];
+}
+
+-(void)byeWithNameReceived:(NSNotification*) notif{
+    [self.namesFromServer.textStorage appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ went out from range\n",notif.object]]];
+    //[self.namesScrollView scrollToEndOfDocument:self];
+}
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
     
