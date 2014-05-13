@@ -33,6 +33,95 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Edit" id="2wC-9b-hJJ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Edit" id="7ux-Q5-SnX">
+                        <items>
+                            <menuItem title="Undo" keyEquivalent="z" id="9xN-k4-L6F">
+                                <connections>
+                                    <action selector="undo:" target="-1" id="Yd9-ff-t8Z"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Redo" keyEquivalent="Z" id="zwS-nO-lST">
+                                <connections>
+                                    <action selector="redo:" target="-1" id="5QE-4M-3TD"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="fUn-7j-O9W"/>
+                            <menuItem title="Cut" keyEquivalent="x" id="0Wh-1t-kLZ">
+                                <connections>
+                                    <action selector="cut:" target="-1" id="nxh-8j-VEv"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Copy" keyEquivalent="c" id="CdR-ET-LrT">
+                                <connections>
+                                    <action selector="copy:" target="-1" id="LYY-En-FCO"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste" keyEquivalent="v" id="4sw-h0-YjX">
+                                <connections>
+                                    <action selector="paste:" target="-1" id="tWL-z6-rYU"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste and Match Style" keyEquivalent="V" id="Lpf-JD-Agg">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="pasteAsPlainText:" target="-1" id="4xt-lC-52S"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Delete" id="Iux-V5-pRP">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="delete:" target="-1" id="p3Y-Wx-Ivs"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Select All" keyEquivalent="a" id="4ub-9E-id0">
+                                <connections>
+                                    <action selector="selectAll:" target="-1" id="M3u-Ze-IF3"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="dLv-hz-kT8"/>
+                            <menuItem title="Find" id="DMJ-4d-QH4">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Find" id="mbo-fC-Pr2">
+                                    <items>
+                                        <menuItem title="Find…" tag="1" keyEquivalent="f" id="jSL-Ui-yfr">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="-1" id="Jia-5S-MUI"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="Yn9-aO-vsA">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="performTextFinderAction:" target="-1" id="DlS-A9-jsV"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Find Next" tag="2" keyEquivalent="g" id="Ig8-Qa-Xh9">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="-1" id="MS4-7w-SPU"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="wKi-KJ-Gje">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="-1" id="hay-mV-276"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="8uj-fA-y3e">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="-1" id="xXJ-fp-z1J"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Jump to Selection" keyEquivalent="j" id="AV4-Eh-322">
+                                            <connections>
+                                                <action selector="centerSelectionInVisibleArea:" target="-1" id="Jxv-p1-ARE"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
             </items>
         </menu>
         <window title="BeaconEmitter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
@@ -215,10 +304,10 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="506" height="296"/>
-                                    <size key="maxSize" width="506" height="10000000"/>
+                                    <size key="maxSize" width="508" height="10000000"/>
                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="506" height="296"/>
-                                    <size key="maxSize" width="506" height="10000000"/>
+                                    <size key="maxSize" width="508" height="10000000"/>
                                 </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

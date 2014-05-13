@@ -108,8 +108,11 @@
         [self.manager stopAdvertising];
         [sender setTitle:@"Turn iBeacon on"];
     } else {
-       
-        NSUUID *proximityUUID  = [[NSUUID alloc] initWithUUIDString:self.uuid.stringValue];
+        NSString* uuidValue = self.uuid.stringValue;
+        if ([uuidValue length] == 0) {
+            uuidValue = [[self.uuid cell] placeholderString];
+        }
+        NSUUID *proximityUUID  = [[NSUUID alloc] initWithUUIDString:uuidValue];
         if (proximityUUID) {
             BNMBeaconRegion *beacon = [[BNMBeaconRegion alloc] initWithProximityUUID:proximityUUID major:self.major.intValue minor:self.minor.intValue  identifier:self.identifier.stringValue];
             NSNumber *measuredPower = nil;
